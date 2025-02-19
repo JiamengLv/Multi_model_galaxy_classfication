@@ -9,7 +9,7 @@ for lr in "${LR[@]}"; do
         for wd in "${WD[@]}"; do
             echo "Training ${model} with lr=${lr} and wd=${wd}"
             CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=12245\
-                    train_galaxy_resnet.py --model_name "${model}" \
+                    Train_Galaxy_Code.py --model_name "${model}" \
                     --batch_size 32 \
                     --weight_decay "${wd}" \
                     --lr "${lr}" \
@@ -33,7 +33,7 @@ for lr in "${LR[@]}"; do
         for wd in "${WD[@]}"; do
             echo "Training ${model} with lr=${lr} and wd=${wd}"
             CUDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node=1  --master_port=12245\
-                    train_galaxy_resnet.py --model_name "${model}" \
+                    Train_Galaxy_Code.py --model_name "${model}" \
                     --batch_size 8  \
                     --weight_decay "${wd}" \
                     --lr "${lr}" \
@@ -54,7 +54,7 @@ for lr in "${LR[@]}"; do
         for wd in "${WD[@]}"; do
             echo "Training ${model} with lr=${lr} and wd=${wd}"
             CUDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node=1 --master_port=3451\
-                    train_galaxy_resnet.py --model_name "${model}" \
+                    Train_Galaxy_Code.py --model_name "${model}" \
                     --batch_size 8\
                     --weight_decay "${wd}" \
                     --lr "${lr}" \
